@@ -1,0 +1,28 @@
+browser->server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server-->browser: 302 Redirect - /notes
+note over browser
+    redirect causing browser 
+    reload /notes page again
+end note
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML Code
+note over browser
+    reload entire HTML
+    causing 3 more request
+end note
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+note over browser
+    browser execute js-code
+    that request JSON data
+    from server
+end note
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: 200 Ok - JSON notes list data {...}
+note over browser
+    browser execute handler
+    that render notes to
+    display
+end note

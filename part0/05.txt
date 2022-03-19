@@ -1,0 +1,17 @@
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML Code without list content
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+note over browser
+    browser start executes js-code
+    that request JSON data from server
+end note
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: JSON data of list content {...}
+note over browser
+    browser executes an event handler
+    that renders the notes content 
+    to the page using the DOM-API.
+end note

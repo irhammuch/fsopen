@@ -1,0 +1,11 @@
+note over browser
+    browser execute js-code
+    that send data to /new_note_spa
+end note
+browser->server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: 201 created - JSON of new data
+note over browser
+    browser execute event handler
+    that rerender note list element
+    with new data
+end note
